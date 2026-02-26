@@ -23,3 +23,4 @@ rootProject.name = "logAnalysis_2"
 include(":app")
 include(":logcat")
 include(":collections")
+include(":logger")
