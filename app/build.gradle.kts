@@ -39,7 +39,6 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(project(":collections"))
     implementation(project(":logcat"))
-    implementation(project(":logcat"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

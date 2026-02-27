@@ -32,6 +32,8 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(project(":logger"))
+    implementation(libs.documentfile)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

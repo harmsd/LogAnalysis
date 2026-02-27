@@ -1,5 +1,8 @@
 package com.dp.loganalysis_2;
 
+import com.dp.logcat.Log;
+
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,41 +10,47 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dp.logcat.Log;
-
 import java.util.List;
 
 public class LogsAdapter extends RecyclerView.Adapter<LogsAdapter.VH> {
-    private final List<Log> data;
 
-    public LogsAdapter(List<com.dp.logcat.Log> data) {
-        this.data = data;
+    private final List<Log> items;
+
+    public LogsAdapter(@NonNull List<Log> items) {
+        this.items = items;
     }
 
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TextView tv = new TextView(parent.getContext());
-        tv.setPadding(16, 16, 16, 16);
-        tv.setTextSize(12);
-        return new VH(tv);
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(android.R.layout.simple_list_item_2, parent, false);
+        return new VH(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VH holder, int position) {
-        holder.tv.setText(data.get(position).toString());
+    public void onBindViewHolder(@NonNull VH h, int position) {
+        Log log = items.get(position);
+
+        h.title.setText(log.metadataToString());
+
+        h.sub.setText(log.getMsg());
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return items.size();
     }
 
     static class VH extends RecyclerView.ViewHolder {
-        TextView tv;
+        final TextView title;
+        final TextView sub;
+
         VH(@NonNull View itemView) {
             super(itemView);
-            tv = (TextView) itemView;
+            title = itemView.findViewById(android.R.id.text1);
+            sub = itemView.findViewById(android.R.id.text2);
+            sub.setSingleLine(false);
         }
     }
 }
