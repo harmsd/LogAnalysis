@@ -31,18 +31,17 @@
             android:id="@+id/buttonDeviceLogs"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Device logs"
-            android:textSize="15dp"
-            android:fontFamily="@font/bitcount_grid_double"
             android:backgroundTint="@color/black"
-            />
+            android:fontFamily="@font/playpen_sans"
+            android:text="Логи устройства"
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/buttonExportLogs"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Import logs"
-            android:fontFamily="@font/bitcount_grid_double"
+            android:text="Загрузка логов"
+            android:fontFamily="@font/playpen_sans"
             android:textSize="15dp"
             android:backgroundTint="@color/black"
             />
@@ -51,9 +50,9 @@
             android:id="@+id/buttonImportLogs"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Export logs"
+            android:text="Выгрузка логов"
             android:textSize="15dp"
-            android:fontFamily="@font/bitcount_grid_double"
+            android:fontFamily="@font/playpen_sans"
             android:backgroundTint="@color/black"
             />
     </LinearLayout>

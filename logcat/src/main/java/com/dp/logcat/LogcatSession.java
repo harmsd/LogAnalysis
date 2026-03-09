@@ -30,12 +30,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class LogcatSession {
 
     private static final long THREAD_JOIN_TIMEOUT_MS = 5_000L;
-
     private final int capacity;
     private final Set<String> buffers;
-
     private volatile long pollIntervalMs = 250L;
-
     // state
     private final AtomicBoolean active = new AtomicBoolean(false);
     private final AtomicBoolean stopped = new AtomicBoolean(false);
@@ -358,7 +355,8 @@ public final class LogcatSession {
         List<String> cmd = new ArrayList<>();
         cmd.add("logcat");
         cmd.add("-v");
-        cmd.add("long");
+//      cmd.add("long");
+        cmd.add("threadtime");
 
         // parity with Kotlin: (questionable, but kept)
         if (uidSupported) {

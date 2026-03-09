@@ -1,5 +1,6 @@
 package com.dp.loganalysis_2;
 
+import com.dp.collections.FixedCircularArray;
 import com.dp.logcat.Log;
 
 import android.view.LayoutInflater;
@@ -10,13 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
 
 public class LogsAdapter extends RecyclerView.Adapter<LogsAdapter.VH> {
-
-    private final List<Log> items;
-
-    public LogsAdapter(@NonNull List<Log> items) {
+    private final FixedCircularArray<Log> items;
+    public LogsAdapter(FixedCircularArray<Log> items) {
         this.items = items;
     }
 
